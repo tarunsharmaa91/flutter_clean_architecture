@@ -21,7 +21,7 @@ class AppHttpManager implements HttpManager {
     try {
       print('Api Get request url $url');
       final response = await http
-          .get(_queryBuilder(url, query), headers: _headerBuilder(headers))
+          .get(Uri.parse(_queryBuilder(url, query)), headers: _headerBuilder(headers))
           .timeout(timeout, onTimeout: () => throw TimeoutException());
       return _returnResponse(response);
     } on Exception catch (_) {
@@ -39,7 +39,7 @@ class AppHttpManager implements HttpManager {
     try {
       print('Api Post request url $url, with $body');
       final response = await http
-          .post(_queryBuilder(url, query),
+          .post(Uri.parse(_queryBuilder(url, query)),
               body: body != null ? json.encode(body) : null,
               headers: _headerBuilder(headers))
           .timeout(timeout, onTimeout: () => throw TimeoutException());
@@ -59,7 +59,7 @@ class AppHttpManager implements HttpManager {
     try {
       print('Api Put request url $url, with $body');
       final response = await http
-          .put(_queryBuilder(url, query),
+          .put(Uri.parse(_queryBuilder(url, query)),
               body: json.encode(body), headers: _headerBuilder(headers))
           .timeout(timeout, onTimeout: () => throw TimeoutException());
       return _returnResponse(response);
@@ -77,7 +77,7 @@ class AppHttpManager implements HttpManager {
     try {
       print('Api Delete request url $url');
       final response = await http
-          .delete(_queryBuilder(url, query), headers: _headerBuilder(headers))
+          .delete(Uri.parse(_queryBuilder(url, query)), headers: _headerBuilder(headers))
           .timeout(timeout, onTimeout: () => throw TimeoutException());
       return _returnResponse(response);
     } on Exception catch (_) {

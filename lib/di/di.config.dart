@@ -7,7 +7,7 @@
 import 'dart:async';
 
 import 'package:get_it/get_it.dart';
-import 'package:injectable/get_it_helper.dart';
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/data_source/local/app_local_data_source.dart';
